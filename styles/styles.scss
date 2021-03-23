@@ -20,7 +20,7 @@ h3{
     background-color: #4BB3FD;
 }
 
-#start, #restart{
+#start, #restart, #play-again{
     width: 90px;
     height: 50px;
     background: #E7E393;
@@ -47,6 +47,10 @@ body{
     background-color:  #00487C;
 }
 
+img{
+    width: 50px;
+    height: 50px;
+}
 
 .game{
 display:flex;
@@ -61,6 +65,26 @@ justify-content: center;
     background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,0.41220238095238093) 100%);
 }
 
-#player-round, #player-total, #computer-round, #computer-total{
+#player-round, #player-total, #player-output, #computer-output, #computer-round, #computer-total{
     text-align: left;
+}
+
+#pop-up{
+    width:300px;
+    padding:10px;
+    background-color: rgb(223, 39, 39);
+    color:white;
+    border:solid 1px black;
+    box-shadow:0px 0px 5px yellow, 5px 5px 5px black;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    opacity:0;
+    pointer-events: none;
+}
+
+#pop-up button{
+    cursor:pointer;
+    pointer-events: all;
 }

@@ -1,38 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Project by Ali Namdari</title>
-        <link rel="stylesheet" href="styles/styles.css">
-    </head>
 
-    <body>
-        <div class="content">
-            <h1>Final Project by Ali Namdari</h1>
-            <br>
-            <div>
-                <p id="rules">Rules of the game:</p>
-                <ul>
-                    <li><strong>1)</strong> If your second roll is a 1, you get a 0 for the round. </li>
-                    <li><strong>2)</strong>  If your second roll is the same as your first roll, then the second roll will be multiplied by the first roll to add to your total. </li>
-                    <li><strong>3)</strong>  If the rolls do not match the conditions above, then first and second roll are simply added together. </li>
-                </ul>
+<head>
+    <meta charset="UTF-8">
+    <title>Project by Ali Namdari</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <div class="content">
+        <h1>Final Project by Ali Namdari</h1>
+        <br>
+        <div>
+            <div id="pop-up">
+                <p id="results"></p>
+                <button id="play-again">Play again</button>
             </div>
-            <button id="start">Role dice</button>
-            <button id="restart">Reset game</button>
-            <div class="game">
-                <div class="player-score">
-                    <h3>Player roll</h3>
-                    <p id="player-round">Score this round:</p>
-                    <p id="player-total">Total score:</p>
-                </div>
-                <div class="computer-score">
-                    <h3>Computer roll</h3>
-                    <p id="computer-round">Score this round:</p>
-                    <p id="computer-total">Total score:</p>
-                </div>
+            <p id="rules">Rules of the game:</p>
+            <ul>
+                <li><strong>1)</strong> If your second roll is a 1, you get a 0 for the round. </li>
+                <li><strong>2)</strong> If your second roll is the same as your first roll, then the second roll will be
+                    multiplied by the first roll to add to your total. </li>
+                <li><strong>3)</strong> If the rolls do not match the conditions above, then first and second roll are
+                    simply added together. </li>
+            </ul>
+        </div>
+        <button id="start">Roll dice</button>
+        <button id="restart">Reset game</button>
+        <div class="game">
+            <div class="player-score">
+                <h3>Player roll</h3>
+                <p id="player-output"></p>
+                <p id="player-round">Score this round:</p>
+                <p id="player-total">Total score:</p>
+            </div>
+            <div class="computer-score">
+                <h3>Computer roll</h3>
+                <p id="computer-output"></p>
+                <p id="computer-round">Score this round:</p>
+                <p id="computer-total">Total score:</p>
             </div>
         </div>
-    </body>
-    <script src="scripts/project.js"></script>
+    </div>
+</body>
+<script src="scripts/jquery-3.4.1.min.js"></script>
+<script src="scripts/project.js"></script>
+
 </html>

@@ -41,8 +41,10 @@ rollBtn.addEventListener('click', function () {
         computerRoll2 = computer.roll();
 
 
-        if (playerRoll1 == 1 || playerRoll2 == 1) {
+        if (playerRoll2 == 1) {
             player.roundScore = 0;
+        }else if(playerRoll1 == playerRoll2){
+            player.roundScore = playerRoll1 *playerRoll2;
         }else{
             player.roundScore = playerRoll1 + playerRoll2;
         }
@@ -51,8 +53,10 @@ rollBtn.addEventListener('click', function () {
             player.total += player.roundScore;
             playerTotal.innerHTML = `Total score: ${player.total}`;
 
-        if (computerRoll1 == 1 || computerRoll2 == 1) {
+        if (computerRoll2 == 1) {
             computer.roundScore = 0;
+        }else if(computerRoll1 == computerRoll2){
+            computer.roundScore = computerRoll1 * computerRoll2;
         } else{
             computer.roundScore = computerRoll1 + computerRoll2;
         }

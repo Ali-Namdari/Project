@@ -3,6 +3,18 @@
 $page_height: 95vh;
 $page_weight: 80%;
 $border_style: groove;
+$image_width: 50px;
+$image_height: 50px;
+
+@mixin image-sizes($width, $height){
+    width: $width;
+    height:$height;	  
+}
+
+img{
+    @include image-sizes($image_width, $image_height);
+}
+
 
 h3{
     color: white;
@@ -45,11 +57,6 @@ li{
 
 body{
     background-color:  #00487C;
-}
-
-img{
-    width: 50px;
-    height: 50px;
 }
 
 .game{

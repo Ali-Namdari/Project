@@ -29,70 +29,70 @@ class Player {
 }
 
 player = new Player('Ali', 0, 0);
-computer = new Player('Computer', 0 , 0);
+computer = new Player('Computer', 0, 0);
 
 rollBtn.addEventListener('click', function () {
-        playerRoundScore.innerHTML = 'Score this round: ';
-        computerRoundScore.innerHTML = 'Score this round: ';
-        playerRoll1 = player.roll();
-        playerRoll2 = player.roll();
+    playerRoundScore.innerHTML = 'Score this round: ';
+    computerRoundScore.innerHTML = 'Score this round: ';
+    playerRoll1 = player.roll();
+    playerRoll2 = player.roll();
 
-        computerRoll1 = computer.roll();
-        computerRoll2 = computer.roll();
+    computerRoll1 = computer.roll();
+    computerRoll2 = computer.roll();
 
 
-        if (playerRoll2 == 1) {
-            player.roundScore = 0;
-        }else if(playerRoll1 == playerRoll2){
-            player.roundScore = playerRoll1 *playerRoll2;
-        }else{
-            player.roundScore = playerRoll1 + playerRoll2;
+    if (playerRoll2 == 1) {
+        player.roundScore = 0;
+    } else if (playerRoll1 == playerRoll2) {
+        player.roundScore = playerRoll1 * playerRoll2;
+    } else {
+        player.roundScore = playerRoll1 + playerRoll2;
+    }
+    playerOutput.innerHTML = `You rolled: ${playerRoll1} and ${playerRoll2}`;
+    playerRoundScore.innerHTML += (player.roundScore);
+    player.total += player.roundScore;
+    playerTotal.innerHTML = `Total score: ${player.total}`;
+
+    if (computerRoll2 == 1) {
+        computer.roundScore = 0;
+    } else if (computerRoll1 == computerRoll2) {
+        computer.roundScore = computerRoll1 * computerRoll2;
+    } else {
+        computer.roundScore = computerRoll1 + computerRoll2;
+    }
+    computerOutput.innerHTML = `You rolled: ${computerRoll1} and ${computerRoll2}`;
+    computerRoundScore.innerHTML += (computer.roundScore);
+    computer.total += computer.roundScore;
+    computerTotal.innerHTML = `Total score: ${computer.total}`;
+
+    rollCount++;
+    console.log(rollCount);
+
+    if (rollCount == 3) {
+        if (computer.total > player.total) {
+            results.innerHTML += "You lost, play again!";
+        } else if (computer.total == player.total) {
+            results.innerHTML += "Game tied, play again!";
         }
-        playerOutput.innerHTML = `You rolled: ${playerRoll1} and ${playerRoll2}`;
-            playerRoundScore.innerHTML += (player.roundScore);
-            player.total += player.roundScore;
-            playerTotal.innerHTML = `Total score: ${player.total}`;
-
-        if (computerRoll2 == 1) {
-            computer.roundScore = 0;
-        }else if(computerRoll1 == computerRoll2){
-            computer.roundScore = computerRoll1 * computerRoll2;
-        } else{
-            computer.roundScore = computerRoll1 + computerRoll2;
+        else {
+            results.innerHTML += "You won, play again!";
         }
-            computerOutput.innerHTML = `You rolled: ${computerRoll1} and ${computerRoll2}`;
-            computerRoundScore.innerHTML += (computer.roundScore);
-            computer.total += computer.roundScore;
-            computerTotal.innerHTML = `Total score: ${computer.total}`;
+        rollBtn.disabled = true;
+        $('#pop-up').fadeTo(1000, 1);
+    }
 
-        rollCount++;
-        console.log(rollCount);
-
-        if(rollCount == 3){
-            if(computer.total > player.total){
-                results.innerHTML += "You lost, play again!";
-            }else if(computer.total == player.total){
-                results.innerHTML += "Game tied, play again!";
-            }
-            else{
-                results.innerHTML += "You won, play again!";
-            }
-            rollBtn.disabled = true;
-            $('#pop-up').fadeTo(1000, 1);
-        }
-        
 })
-playAgain.addEventListener('click', function(){
+playAgain.addEventListener('click', function () {
     $('#pop-up').fadeOut(1000);
 })
 
-restartBtn.addEventListener('click', function(){
+restartBtn.addEventListener('click', function () {
     player.roundScore = 0;
     player.total = 0;
     computer.roundScore = 0;
     computer.total = 0;
     rollCount = 0;
-    
+
     playerOutput.innerHTML = '';
     playerTotal.innerHTML = 'Total score: ';
     playerRoundScore.innerHTML = 'Score this round: ';

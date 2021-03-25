@@ -40,11 +40,11 @@ rollBtn.addEventListener('click', function () {
     computerRoll1 = computer.roll();
     computerRoll2 = computer.roll();
 
-
+//Making the assumption that the first rule still applies for both player and computer where if the second roll is a 1 then it is still counted as a 0 regardless if it both rolls are a 1.
     if (playerRoll2 == 1) {
         player.roundScore = 0;
     } else if (playerRoll1 == playerRoll2) {
-        player.roundScore = playerRoll1 * playerRoll2;
+        player.roundScore = (playerRoll1 + playerRoll2) * 2;
     } else {
         player.roundScore = playerRoll1 + playerRoll2;
     }
@@ -55,8 +55,8 @@ rollBtn.addEventListener('click', function () {
 
     if (computerRoll2 == 1) {
         computer.roundScore = 0;
-    } else if (computerRoll1 == computerRoll2) {
-        computer.roundScore = computerRoll1 * computerRoll2;
+    } else if (computerRoll1 == computerRoll2) { 
+        computer.roundScore = (computerRoll1 + computerRoll2) * 2;
     } else {
         computer.roundScore = computerRoll1 + computerRoll2;
     }
